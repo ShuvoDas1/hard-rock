@@ -53,7 +53,16 @@
             <!-- === Simple results === -->
             <div class="d-flex justify-content-center">
                 <div class="">
-                    <p class="author lead"><strong id='title1'>Purple Noon</strong> Album by <span id='album1'>Washed Out</span> <button id="getLyrics-1" class="btn btn-success">Get Lyrics</button></p>
+                    <div class="single-result row align-items-center my-3 p-3">
+                        <div class="col-md-9">
+                            <h3 id='title1' class=>Purple Noon</h3>
+                            <p class="author lead">Album by <span id='album1'>Washed Out</span></p>
+                        </div>
+                        <div class="col-md-3 text-md-right text-center">
+                            <button class="btn btn-success">Get Lyrics</button>
+                        </div>
+                    </div>
+                    <!-- <p class="author lead"><strong id='title1'>Purple Noon</strong> Album by <span id='album1'>Washed Out</span> <button id="getLyrics-1" class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong id='title2'>Purple Noon</strong> Album by <span id='album2'>Washed Out</span> <button id="getLyrics-2" class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong id='title3'>Purple Noon</strong> Album by <span id='album3'>Washed Out</span> <button id="getLyrics-3" class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong id='title4'>Purple Noon</strong> Album by <span id='album4'>Washed Out</span> <button id="getLyrics-4"  class="btn btn-success">Get Lyrics</button></p>
@@ -62,7 +71,7 @@
                     <p class="author lead"><strong id='title7'>Purple Noon</strong> Album by <span id='album7'>Washed Out</span> <button id="getLyrics-7" class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong id='title8'>Purple Noon</strong> Album by <span id='album8'>Washed Out</span> <button id="getLyrics-8" class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong id='title9'>Purple Noon</strong> Album by <span id='album9'>Washed Out</span> <button id="getLyrics-9" class="btn btn-success">Get Lyrics</button></p>
-                    <p class="author lead"><strong id='title10'>Purple Noon</strong> Album by <span id='album10'>Washed Out</span> <button id="getLyrics-10" class="btn btn-success">Get Lyrics</button></p>
+                    <p class="author lead"><strong id='title10'>Purple Noon</strong> Album by <span id='album10'>Washed Out</span> <button id="getLyrics-10" class="btn btn-success">Get Lyrics</button></p> -->
                 </div>
             </div>
             <!-- Single Lyrics -->
@@ -180,15 +189,7 @@
                 <!-- ./ single result -->
 
                 <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class=>Purple Noon</h3>
-                        <p class="author lead">Album by <span>Washed Out</span></p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success">Get Lyrics</button>
-                    </div>
-                </div>
+                
                 <!-- ./ single result -->
                 <!-- single result -->
                 <div class="single-result row align-items-center my-3 p-3">
@@ -232,7 +233,7 @@
             .then(res => res.json())
             .then(data => {
                 const song = data.data;
-                 console.log(song);
+                //  console.log(song);
                 const songTitlee = song.map(sTitle => sTitle.title);
                 document.getElementById('title1').innerText = songTitlee[0];
                 document.getElementById('title2').innerText = songTitlee[1];
@@ -246,6 +247,7 @@
                 document.getElementById('title10').innerText = songTitlee[9];
 
                 const songAlbum = song.map(sAlbum => sAlbum.album.title)
+                console.log(songAlbum);
                 document.getElementById('album1').innerText = songAlbum[0];
                 document.getElementById('album2').innerText = songAlbum[1];
                 document.getElementById('album3').innerText = songAlbum[2];
@@ -258,9 +260,16 @@
                 document.getElementById('album10').innerText = songAlbum[9];
     
             })
-            
-            
+                    
         })
+        // document.getElementById("getLyrics-1").addEventListener('click',function(){
+        //     fetch("http://www.deezer.com/track/88936747")
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        // })
+
 
     </script>
 
